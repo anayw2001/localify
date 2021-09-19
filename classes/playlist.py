@@ -32,6 +32,12 @@ class Playlist:
     def remove_song(self, song: Song) -> None:
         self.songs.remove(song)
 
+    def get_song(self, name: str) -> Song:
+        for song in self.songs:
+            if song.name == name:
+                return song
+        return None
+
     # API internal
     def api_export(self) -> str:
         return JSONEncoder().encode(self.get_as_dict())
